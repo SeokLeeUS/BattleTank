@@ -38,6 +38,7 @@ void UTankTrack::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompo
 	auto CorrectionAcceleration = SlippageSpeed / DeltaTime * GetRightVector();
 	auto TankRoot = Cast<UStaticMeshComponent>(GetOwner()->GetRootComponent());
 	auto CorrectionForce = (TankRoot->GetMass() * CorrectionAcceleration) / 2;
+	CorrectionForce = FVector(0);
 	TankRoot->AddForce(CorrectionForce);
 
 }
