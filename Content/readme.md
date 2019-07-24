@@ -1,7 +1,7 @@
 Cannot add the following two files (due to the large size):
 
-BattleGround.umap
-BattleGround_BuiltData.uasset
+- BattleGround.umap
+- BattleGround_BuiltData.uasset
 
 I am adding those in the following drive:
 
