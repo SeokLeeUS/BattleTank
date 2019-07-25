@@ -35,7 +35,7 @@ void UTankTrack::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompo
 
 	auto SlippageSpeed = FVector::DotProduct(GetRightVector(), GetComponentVelocity());
 	//auto DeltaTime = GetWorld()->GetDeltaSeconds();
-	auto CorrectionAcceleration = SlippageSpeed / DeltaTime * GetRightVector();
+	auto CorrectionAcceleration = - SlippageSpeed / DeltaTime * GetRightVector();
 	auto TankRoot = Cast<UStaticMeshComponent>(GetOwner()->GetRootComponent());
 	auto CorrectionForce = (TankRoot->GetMass() * CorrectionAcceleration) / 2;
 	//CorrectionForce = FVector(0); 
@@ -77,8 +77,8 @@ void UTankTrack::SetThrottle(float Throttle)
 void UTankTrack::DriveTrack()
 {
 	//float multiple = 1;
-	//auto ForceApplied = GetForwardVector() * CurrentThrottle * TrackMaxDrivingForce*multiple;
-	//auto ForceLocation = GetComponentLocation();
-	//auto TankRoot = Cast<UPrimitiveComponent>(GetOwner()->GetRootComponent());   //GetOwner means TankTrack
-	//TankRoot->AddForceAtLocation(ForceApplied, ForceLocation);
+	//auto forceapplied = getforwardvector() * currentthrottle * trackmaxdrivingforce*multiple;
+	//auto forcelocation = getcomponentlocation();
+	//auto tankroot = cast<uprimitivecomponent>(getowner()->getrootcomponent());   //getowner means tanktrack
+	//tankroot->addforceatlocation(forceapplied, forcelocation);
 }
