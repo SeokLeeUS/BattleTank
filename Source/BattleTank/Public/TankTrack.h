@@ -37,7 +37,7 @@ private:
 
 	void DriveTrack();
 
-	float CurrentThrottle = 0;
+	//float CurrentThrottle = 0;
 	
 };
 
