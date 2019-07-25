@@ -1,5 +1,7 @@
 # BattleTank
 
+![battle_tank_demo](https://github.com/SeokLeeUS/BattleTank/raw/master/_image/battletank.gif)
+
 The committed codes are up to date and go with lecture # 234 from the [reference lecture material](https://www.udemy.com/share/1000hGA0MSdVdUR3w=/?xref=E0EbeFpbQ34BSUQvCz0GJVUWTx4dChQ%2BVFE=).
 
 
