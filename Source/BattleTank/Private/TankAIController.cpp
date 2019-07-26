@@ -1,39 +1,16 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
-#include "TankAIController.h"
+#include "BattleTank.h"
 #include "TankAimingComponent.h"
-
+#include "TankAIController.h"
+// Depends on movement component via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
-	//auto ControlledTank = GetControlledTank();
-	//auto PlayerTank = GetPlayerTank();
 	Super::BeginPlay();
-	//UE_LOG(LogTemp, Warning, TEXT("PlayerController Begin Play"));
-	//if (ControlledTank != nullptr)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("Pawn %s is possessed by AI controller"), *(GetPawn()->GetName()));
-	//}
-
-	//else
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("PlayController does not possessing a tank"));
-	//}
-
-	//if (PlayerTank != nullptr)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("got it %s"), *(PlayerTank->GetName()));
-	//}
-
-	//else
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("problem"));
-	//}
-
-
 }
 
+// Called every frame
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -43,18 +20,12 @@ void ATankAIController::Tick(float DeltaTime)
 
 	if (!ensure(PlayerTank && ControlledTank)) { return; }
 	
-		// Aim toward the player
+	// Move towards the player
+	MoveToActor(PlayerTank, AcceptanceRadius); // TODO check radius is in cm
+
+	// Aim towards the player
 	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
-	AimingComponent->AimAt(PlayerTank -> GetActorLocation());
+	AimingComponent->AimAt(PlayerTank->GetActorLocation());
 
-	AimingComponent->Fire();
-	//GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
-	//ControlledTank->Fire();
-	// fire if ready
-	//GetControlledTank()->Fire();
-	MoveToActor(PlayerTank, AcceptanceRadius); // Todo check radius in cm 
-
-	
-	//UE_LOG(LogTemp, Warning, TEXT("Player controller is ticking"));
+	AimingComponent->Fire(); // TODO limit firing rate
 }
-
