@@ -28,8 +28,13 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void SetPawn(APawn* InPawn) override;
+
 private:
 	//How close can the AI tank get
-	float AcceptanceRadius = 3000;
+	float AcceptanceRadius = 8000;
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
 	
 };
